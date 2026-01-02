@@ -1,7 +1,6 @@
-import { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Stars, Environment, Html, Text } from '@react-three/drei';
-import * as THREE from 'three';
+import { useMemo } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Stars, Environment, Html } from '@react-three/drei';
 import { useStore } from '../../store/useStore';
 
 // Distinct colors for clusters
@@ -22,7 +21,7 @@ function Centroids() {
 
   return (
     <group>
-      {validTopics.map((topic, i) => {
+      {validTopics.map((topic) => {
         const color = CLUSTER_COLORS[parseInt(topic.id) % CLUSTER_COLORS.length] || '#ffffff';
         
         return (

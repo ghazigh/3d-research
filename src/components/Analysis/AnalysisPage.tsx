@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  LineChart, Line, ScatterChart, Scatter, ZAxis
+  LineChart, Line
 } from 'recharts';
-import { FileText, Activity, Target, Network } from 'lucide-react';
 import TopicVis from './TopicVis';
 import CentroidVis from './CentroidVis';
 

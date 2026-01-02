@@ -26,8 +26,7 @@ export default function Sidebar() {
     setShowLabels,
     showKeywords,
     setShowKeywords,
-    currentView,
-    setCurrentView
+    currentView
   } = useStore();
 
   const journals = useMemo(() => [...new Set(papers.map(p => p.journal))].sort(), [papers]);
