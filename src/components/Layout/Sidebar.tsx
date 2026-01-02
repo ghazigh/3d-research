@@ -1,13 +1,14 @@
 import { useState, useMemo } from 'react';
 import { useStore } from '../../store/useStore';
 import { 
-  X, Search, BookOpen, Calendar, ChevronLeft, ChevronRight, 
+  X, Search, BookOpen, Calendar, ChevronLeft, ChevronRight, ChevronDown,
   Palette, TrendingUp, Target, Globe, Filter, Layers, Eye, EyeOff,
   CheckCircle2
 } from 'lucide-react';
 
 export default function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isTopicsCollapsed, setIsTopicsCollapsed] = useState(true);
   
   const { 
     selectedPaper, 
@@ -169,12 +170,19 @@ export default function Sidebar() {
               </div>
 
               {/* Topic Filter List */}
-              <div className="bg-zinc-900/30 border border-white/10 rounded-xl overflow-hidden">
-                <div className="px-4 py-2 bg-white/5 border-b border-white/5 flex justify-between items-center">
-                  <span className="text-xs font-medium text-zinc-400">Topic Visibility</span>
+              <div className="bg-zinc-900/30 border border-white/10 rounded-xl overflow-hidden transition-all duration-300">
+                <button 
+                  onClick={() => setIsTopicsCollapsed(!isTopicsCollapsed)}
+                  className="w-full px-4 py-2 bg-white/5 border-b border-white/5 flex justify-between items-center hover:bg-white/10 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    {isTopicsCollapsed ? <ChevronRight size={14} className="text-zinc-400" /> : <ChevronDown size={14} className="text-zinc-400" />}
+                    <span className="text-xs font-medium text-zinc-400">Topic Visibility</span>
+                  </div>
                   <span className="text-xs text-zinc-600">{topics.length - hiddenTopics.length} Active</span>
-                </div>
-                <div className="max-h-48 overflow-y-auto custom-scrollbar p-2 space-y-0.5">
+                </button>
+                
+                <div className={`overflow-y-auto custom-scrollbar p-2 space-y-0.5 transition-all duration-300 ${isTopicsCollapsed ? 'max-h-0 opacity-0 p-0' : 'max-h-48 opacity-100'}`}>
                   {sortedTopics.map(topic => {
                     const isHidden = hiddenTopics.includes(topic.id);
                     return (
@@ -223,6 +231,9 @@ export default function Sidebar() {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
+            <p className="text-xs text-zinc-500 mt-2 italic text-center">
+              Click on a point to check the paper
+            </p>
           </section>
 
           {/* 4. Paper Details (Conditional) */}
