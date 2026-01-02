@@ -1,0 +1,12 @@
+project-folder/
+│
+├── index.html
+├── styles.css
+├── script.js
+├── data/
+│   ├── ieee_papers_with_embeddings_40k.csv
+│   ├── vocab_embeddings.csv
+│   └── other_data_files.csv (if needed)
+└── assets/
+    ├── images/
+    └── fonts/

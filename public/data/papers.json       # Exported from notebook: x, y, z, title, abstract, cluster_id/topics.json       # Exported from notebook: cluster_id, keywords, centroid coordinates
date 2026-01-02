@@ -1,0 +1,13 @@
+project-website/
+│
+├── index.html
+├── styles.css
+├── script.js
+├── data/
+│   ├── ieee_papers_with_embeddings_40k.csv
+│   ├── vocab_embeddings.csv
+│   └── keywords.json
+├── assets/
+│   ├── images/
+│   └── icons/
+└── README.md

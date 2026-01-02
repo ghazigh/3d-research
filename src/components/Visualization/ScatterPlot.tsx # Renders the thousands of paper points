@@ -1,0 +1,14 @@
+project-website/
+│
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   ├── main.js
+│   └── plotly-latest.min.js
+├── data/
+│   ├── ieee_papers_with_embeddings_40k.csv
+│   ├── vocab_embeddings.csv
+│   └── other_data_files.csv (if needed)
+└── images/
+    └── logo.png (or any other images you want to include)
