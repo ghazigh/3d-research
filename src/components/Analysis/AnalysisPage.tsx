@@ -26,7 +26,7 @@ const AnalysisPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/data/analysis.json')
+    fetch(`${import.meta.env.BASE_URL}data/analysis.json`)
       .then(res => res.json())
       .then(setData)
       .catch(err => {

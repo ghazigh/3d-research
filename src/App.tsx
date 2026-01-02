@@ -11,10 +11,11 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const baseUrl = import.meta.env.BASE_URL;
     Promise.all([
-      fetch('/data/papers.json').then(res => res.json()),
-      fetch('/data/topics.json').then(res => res.json()),
-      fetch('/data/global.json').then(res => res.json()).catch(() => null) // Handle missing file gracefully
+      fetch(`${baseUrl}data/papers.json`).then(res => res.json()),
+      fetch(`${baseUrl}data/topics.json`).then(res => res.json()),
+      fetch(`${baseUrl}data/global.json`).then(res => res.json()).catch(() => null) // Handle missing file gracefully
     ]).then(([papersData, topicsData, globalData]) => {
       setData(papersData, topicsData, globalData);
       setLoading(false);
