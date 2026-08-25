@@ -71,7 +71,7 @@ const AnalysisPage: React.FC = () => {
       <div className="max-w-7xl mx-auto space-y-24">
         
         {/* Header */}
-        <header className="space-y-6 border-b border-white/10 pb-12 text-center">
+        <header className="space-y-6 border-b border-white/10 pb-12 text-center pt-20">
           <h1 className="text-5xl md:text-6xl font-light tracking-tight text-white leading-tight">
             Mapping the Landscape of <br/> Visualization Research
           </h1>
