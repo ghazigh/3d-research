@@ -6,8 +6,13 @@ import {
   CheckCircle2
 } from 'lucide-react';
 
+// Phones open with the sidebar out of the way: it is 26rem wide and would
+// otherwise cover the whole visualization.
+const isMobileViewport = () =>
+  typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches;
+
 export default function Sidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(isMobileViewport);
   const [isTopicsCollapsed, setIsTopicsCollapsed] = useState(true);
   
   const { 
@@ -65,7 +70,7 @@ export default function Sidebar() {
     <>
       <button 
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className={`absolute top-6 z-20 bg-zinc-800 hover:bg-zinc-700 text-white p-2 rounded-full shadow-xl border border-white/10 transition-all duration-300 ${isCollapsed ? 'left-6' : 'left-[25rem]'}`}
+        className={`absolute top-6 z-20 bg-zinc-800 hover:bg-zinc-700 text-white p-2 rounded-full shadow-xl border border-white/10 transition-all duration-300 ${isCollapsed ? 'left-6' : 'right-6 md:right-auto md:left-[25rem]'}`}
       >
         {isCollapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
       </button>
